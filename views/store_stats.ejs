@@ -1,0 +1,83 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+
+
+  <style>
+  .bar:hover {
+    fill: brown;
+  }
+</style>
+
+</head>
+
+<body>
+  
+
+
+
+
+<script src="https://d3js.org/d3.v6.min.js"></script>
+  <script>
+    
+    let dataset = <%- JSON.stringify(renderList) %>;
+    console.log(dataset);
+    const w = 500;
+    const h = 500;
+
+
+    const padding = 30;
+
+    const xScale = d3.scaleLinear()
+                    .domain([0, 6])
+                    .range([padding, w - padding]);
+
+    const yScale = d3.scaleLinear()
+                    .domain([0, 4700])
+                    .range([h, 0]);
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => h - 3 * d)
+       .attr("width", 25)
+       .attr("height", (d, i) => d)
+       .attr("fill", "navy")
+  
+
+    svg.selectAll("text")
+       .data(dataset)
+       .enter()
+       .append("text")
+       .text((d) => d)
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => h - (3 * d) - 3);
+
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<body>
+  
+</body>

@@ -69,12 +69,26 @@ app.get('/banner/store/:id', (req, res) => {
 
 
 
-    con.query('SELECT * FROM stores s LEFT JOIN donation d ON d.ceres_id = s.ceres_id WHERE s.street = ' + '"' + storereturn + '"' + "ORDER BY d.month DESC LIMIT 3", (err,stores) => {
+    con.query('SELECT * FROM stores s LEFT JOIN donation d ON d.ceres_id = s.ceres_id WHERE s.street = ' + '"' + storereturn + '"' + "ORDER BY d.month DESC LIMIT 6", (err,stores) => {
 		if(err) throw err;
 
   		console.log('Data received from Db:');
+  		let new_arr = [];
+  		stores.forEach((element) => {
+  			let arrSum = 0;
+  			arrSum += element.mix;
+  			arrSum += element.dairy;
+  			arrSum += element.meat;
+  			arrSum += element.produce;
+  			arrSum += element.nonfood;
+  			// let tempArr = [element.month, arrSum];
+  			new_arr.unshift(arrSum)
+
+
+  		});
+  		console.log(new_arr);
   		console.log(stores);
-  		// res.render("stores", {renderList: stores});
+  		res.render("store_stats", {renderList: new_arr});
 	});
     
     
