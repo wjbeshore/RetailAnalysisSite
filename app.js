@@ -4,7 +4,9 @@ const app = express()
 const port = 3000
 const https = require('https')
 const bodyParser = require("body-parser");
+
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + '/public'));
 
 app.set('view engine', 'ejs');
 
