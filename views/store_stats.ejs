@@ -37,10 +37,10 @@
 
     const xScale = d3.scaleLinear()
                     .domain([0, 6])
-                    .range([padding, w - padding]);
+                    .range([padding, w-padding]);
 
     const yScale = d3.scaleLinear()
-                    .domain([0, 4700])
+                    .domain([0, d3.max(dataset)])
                     .range([h, 0]);
 
     const svg = d3.select("body")
@@ -52,10 +52,10 @@
        .data(dataset)
        .enter()
        .append("rect")
-       .attr("x", (d, i) => i * 30)
-       .attr("y", (d, i) => h - 3 * d)
-       .attr("width", 25)
-       .attr("height", (d, i) => d)
+       .attr("width", 30)
+       .attr("x", (d, i) => xScale(i))
+       .attr("y", (d, i) => yScale(d))
+       .attr("height", (d, i) => h - yScale(d))
        .attr("fill", "navy")
   
 
