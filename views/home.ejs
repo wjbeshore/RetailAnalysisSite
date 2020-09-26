@@ -7,12 +7,13 @@
 	<title>Donation Stats App</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style.css"/>
 
 </head>
 
 <body>
-
+<h1>Retail Banners</h1>
+<h4>Select banner to see list of stores.</h4>
 
 
 <div class="container">
@@ -21,6 +22,7 @@
 		<% renderList.forEach(element =>{ %> 
 
 			<li><a href="banner/<%=  element.banner %>"><%=  element.banner %></a></li>
+			<hr/>
 		<% }); %>
 </ul>
 
