@@ -1,10 +1,11 @@
 body {
-	background: #5c4d4d;
+	background: #52616b;
 	height: 100%;
 	width: 100%;
 	margin: 0;
 	padding-bottom: 20px;
 	color: #f2f1e7;
+	padding-left:20px;
 
 
 }
@@ -19,4 +20,15 @@ h1 {
 
 h4 {
 	font-size: 1.5rem;
+}
+
+#graph {
+	margin: auto;
+	width: 1000px;
+}
+
+.header {
+	padding-left: 50px;
+	padding-top: 50px;
+	margin-bottom: 100px;
 }

@@ -71,7 +71,7 @@ app.get('/banner/store/:id', (req, res) => {
 
 
 
-    con.query('SELECT * FROM stores s LEFT JOIN donation d ON d.ceres_id = s.ceres_id WHERE s.street = ' + '"' + storereturn + '"' + "ORDER BY d.month DESC LIMIT 6", (err,stores) => {
+    con.query('SELECT * FROM stores s LEFT JOIN donation d ON d.ceres_id = s.ceres_id WHERE s.street = ' + '"' + storereturn + '"' + "ORDER BY d.month DESC LIMIT 12", (err,stores) => {
 		if(err) throw err;
 
   		console.log('Data received from Db:');
@@ -90,7 +90,7 @@ app.get('/banner/store/:id', (req, res) => {
   		});
   		console.log(new_arr);
   		console.log(stores);
-  		res.render("store_stats", {renderList: new_arr});
+  		res.render("store_stats", {renderList: new_arr, address: storereturn});
 	});
     
     

@@ -21,8 +21,10 @@
 </head>
 
 <body>
-  
-
+<div class="header">
+<h1 ><%=  address %></h1>
+</div>
+<div id="graph"></div>
 
 
 
@@ -31,21 +33,21 @@
     
     let dataset = <%- JSON.stringify(renderList) %>;
     console.log(dataset);
-    const w = 500;
+    const w = 1000;
     const h = 500;
 
 
     const padding = 30;
 
     const xScale = d3.scaleLinear()
-                    .domain([0, 6])
+                    .domain([0, 12])
                     .range([padding, w-padding]);
 
     const yScale = d3.scaleLinear()
                     .domain([0, d3.max(dataset)])
                     .range([h, 0]);
 
-    const svg = d3.select("body")
+    const svg = d3.select("#graph")
                   .append("svg")
                   .attr("width", w)
                   .attr("height", h);
@@ -58,16 +60,16 @@
        .attr("x", (d, i) => xScale(i))
        .attr("y", (d, i) => yScale(d))
        .attr("height", (d, i) => h - yScale(d))
-       .attr("fill", "navy")
+       .attr("fill", "#1e2022")
   
 
-    svg.selectAll("text")
-       .data(dataset)
-       .enter()
-       .append("text")
-       .text((d) => d)
-       .attr("x", (d, i) => i * 30)
-       .attr("y", (d, i) => h - (3 * d) - 3);
+    // svg.selectAll("text")
+    //    .data(dataset)
+    //    .enter()
+    //    .append("text")
+    //    .text((d) => d)
+    //    .attr("x", (d, i) => xScale(i))
+    //    .attr("y", (d, i) => h - yScale(d));
 
   </script>
 </body>
