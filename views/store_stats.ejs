@@ -61,6 +61,19 @@
        .attr("y", (d, i) => yScale(d))
        .attr("height", (d, i) => h - yScale(d))
        .attr("fill", "#1e2022")
+
+
+
+    svg.selectAll(".text")        
+  		.data(dataset)
+  		.enter()
+  		.append("text")
+  		.attr("class","label")
+  		.attr("x", (d, i) => xScale(i))
+  		.attr("y", (d, i) => h - yScale(d))
+  		.attr("dy", ".75em")
+  		.text(function(d) { return d; });       
+
   
 
     // svg.selectAll("text")
@@ -72,6 +85,8 @@
     //    .attr("y", (d, i) => h - yScale(d));
 
   </script>
+
+  <h1>Test</h1>
 </body>
 </html>
 
