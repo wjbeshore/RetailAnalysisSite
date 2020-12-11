@@ -50,7 +50,7 @@
     const svg = d3.select("#graph")
                   .append("svg")
                   .attr("width", w)
-                  .attr("height", h);
+                  .attr("height", (h + 40));
 
     svg.selectAll("rect")
        .data(dataset)
@@ -70,10 +70,12 @@
   		.append("text")
   		.attr("class","label")
   		.attr("x", (d, i) => xScale(i))
-  		.attr("y", (d, i) => h - yScale(d))
+  		.attr("y", (d, i) => 500)
   		.attr("dy", ".75em")
-  		.text(function(d) { return d; });       
+  		.text(function(d) { return d; })
+  		.style("fill", "#f2f1e7");       
 
+  		d3.selectAll("#gender_divide text").style("fill", "white");
   
 
     // svg.selectAll("text")
