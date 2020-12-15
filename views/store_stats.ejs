@@ -26,9 +26,10 @@
 </div>
 <div id="graph"></div>
 
-
+<div id="pie_graph"></div>
 
 <script src="https://d3js.org/d3.v6.min.js"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
   <script>
     
     let dataset = <%- JSON.stringify(renderList) %>;
@@ -76,19 +77,9 @@
   		.style("fill", "#f2f1e7");       
 
   		d3.selectAll("#gender_divide text").style("fill", "white");
-  
-
-    // svg.selectAll("text")
-    //    .data(dataset)
-    //    .enter()
-    //    .append("text")
-    //    .text((d) => d)
-    //    .attr("x", (d, i) => xScale(i))
-    //    .attr("y", (d, i) => h - yScale(d));
 
   </script>
 
-  <h1>Test</h1>
 </body>
 </html>
 
